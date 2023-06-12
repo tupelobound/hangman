@@ -19,7 +19,7 @@ print(word)
 guess = input("Please enter a letter: ")
 
 # conditional to check that guess is an alphabetic character and only a single letter
-if re.search("[a-zA-Z]", guess) and len(guess) == 1:
+if guess.isalpha() == True and len(guess) == 1:
     print("Good guess!")
 else:
     print("Oops! That is not a valid input.")
