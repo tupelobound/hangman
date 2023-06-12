@@ -14,3 +14,6 @@ word = choice(word_list)
 
 # print word to standard out
 print(word)
+
+# ask user to input a letter and save it to 'guess' variable
+guess = input("Please enter a letter: ")
