@@ -16,3 +16,10 @@ This milestone involved setting up variables and a simple conditional to test us
 1. a single character, using the len() function
 2. alphabetical, using the isalpha() string method
 
+# Milestone 3
+This milestone consists of the following tasks:
+
+- add a while loop that loops indefinitely until the user input meets the criteria added in milestone 2.
+- use a conditional if-else statement to check whether the user-inputted character is in the randomly-generated word.
+- move the code into two functions, check_guess and ask_for_input. check_guess is called within the body of ask_for_input.
+
