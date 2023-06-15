@@ -37,3 +37,4 @@ class Hangman():
                 self.check_guess(guess)
                 # add the letter to the list of previous guesses
                 self.list_of_guesses.append(guess)
+                break
