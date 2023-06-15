@@ -43,3 +43,8 @@ class Hangman():
                 # add the letter to the list of previous guesses
                 self.list_of_guesses.append(guess)
                 break
+
+def play_game(word_list):
+    pass
+
+
