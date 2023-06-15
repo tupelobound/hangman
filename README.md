@@ -23,3 +23,5 @@ This milestone consists of the following tasks:
 - use a conditional if-else statement to check whether the user-inputted character is in the randomly-generated word.
 - move the code into two functions, check_guess and ask_for_input. check_guess is called within the body of ask_for_input.
 
+# Milestone 4
+This milestone moves the code from the previous milestones into a class, Hangman, and expands the existing functions to display the appropriate responses to the user and update the class attributes, in this case the in-game variables.
