@@ -25,3 +25,12 @@ This milestone consists of the following tasks:
 
 # Milestone 4
 This milestone moves the code from the previous milestones into a class, Hangman, and expands the existing functions to display the appropriate responses to the user and update the class attributes, in this case the in-game variables.
+
+# Milestone 5
+The final milestone adds a function play_game(), which accepts a list of words as a parameter. Inside the body of the function, a new variable for the number of lives is created along with a new instance of the Hangman class, which takes the word list passed into play_game and num_lives as arguments.
+Then, a while loop is set up to repeat until one of the following conditions is met:
+- if the user runs out of lives, a message telling the user they have lost is printed and the loop is broken
+- if the number of remaining letters to be guessed reaches zero, a message telling the user they have won is printed and the loop is broken
+- otherwise, the ask_for_input method of the game instance is called repeatedly, with checks of each letter entered by the user.
+
+Finally, the play_game function is called, in this case with a short list of possible words to guess
