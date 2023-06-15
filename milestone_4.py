@@ -10,13 +10,14 @@ class Hangman():
         self.list_of_guesses = []
 
     def check_guess(self, guess):
-        # convert guess to lower case
         guess = guess.lower()
-
-        # check if guess is in randomly-generated word
+        
         if guess in self.word:
-            # if so, tell user
             print(f"Good guess! {guess} is in the word.")
+            for index, letter in enumerate(self.word):
+                if guess == letter:
+                    self.word_guessed[index] = guess
+            self.num_letters -= 1
             
     def ask_for_input(self):
         while True:
