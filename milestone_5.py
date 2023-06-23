@@ -9,9 +9,9 @@ class Hangman():
         self.word_list = word_list
         self.list_of_guesses = []
 
+
     def check_guess(self, guess):
         guess = guess.lower()
-        
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
             for index, letter in enumerate(self.word):
@@ -23,11 +23,11 @@ class Hangman():
             print(f"Sorry, {guess} is not in the word.")
             print(f"You have {self.num_lives} lives left.")
             
+
     def ask_for_input(self):
         while True:
             # ask user to input a letter and save it to 'guess' variable
             guess = input("Please enter a letter: ")
-            
             # conditional to check that guess is an alphabetic character and only a single letter
             if not (guess.isalpha() == True and len(guess) == 1):
                 # if not, print error message to user
