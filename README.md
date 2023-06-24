@@ -1,36 +1,32 @@
 # Hangman
 Hangman is a classic game in which a player thinks of a word and the other player tries to guess that word within a certain amount of attempts.
 
-This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it.
+This is a Python implementation of the Hangman game, where the computer 'thinks' of a word and the user tries to guess it.
 
-# Milestone 1
-First milestone in project was to clone AICore project repository and connect Github bot to account in order to track commits and update project progress automatically.
+# Playing a game
+To quickly start a game with a limited number of words pre-loaded, simply download and run milestone_5.py. Don't peek at the list of words!
 
-# Milestone 2
-This milestone involved setting up variables and a simple conditional to test user input. The following tasks were completed:
+# Game details
+The game is implemented as a Python class, *Hangman* that can be instantiated by passing in a list of potential words for the user to solve and the number of lives the user will have (essentially the number of incorrect guesses the user can have before losing the game). The *Hangman* class has the following attributes:
 
-- create a short list of words to act as the possible answers, in this case five favourite fruits, and print the list to standard out.
-- import built-in Python module random and use the function choice(), which accepts an iterable as an argument and returns a random item, to assign a random word as the answer. At this stage, print word to standard out.
-- ask user to input a letter, using the input() function and assign the inputted string to the 'guess' variable.
-- use an if-else conditional structure to check that the inputted string is:
-1. a single character, using the len() function
-2. alphabetical, using the isalpha() string method
+- self.word - this is the word to be guessed and is generated upon instantiation by using the choice() method from the Python module random to randomly select one word from the list of words passed into the class
 
-# Milestone 3
-This milestone consists of the following tasks:
+- self.word_guessed - this is a representation of the word the user needs to guess, with underscores replacing any letters that have not been guessed yet. This list is printed at the beginning of the word, and after any guess.
 
-- add a while loop that loops indefinitely until the user input meets the criteria added in milestone 2.
-- use a conditional if-else statement to check whether the user-inputted character is in the randomly-generated word.
-- move the code into two functions, check_guess and ask_for_input. check_guess is called within the body of ask_for_input.
+- self.num_letters - this is an integer representing the number of unique letters in the word still remaining to be guessed by the user
 
-# Milestone 4
-This milestone moves the code from the previous milestones into a class, Hangman, and expands the existing functions to display the appropriate responses to the user and update the class attributes, in this case the in-game variables.
+- self.word_list - a list of words (strings) from which the computer will randomly choose one for the user to guess
 
-# Milestone 5
-The final milestone adds a function play_game(), which accepts a list of words as a parameter. Inside the body of the function, a new variable for the number of lives is created along with a new instance of the Hangman class, which takes the word list passed into play_game and num_lives as arguments.
-Then, a while loop is set up to repeat until one of the following conditions is met:
-- if the user runs out of lives, a message telling the user they have lost is printed and the loop is broken
-- if the number of remaining letters to be guessed reaches zero, a message telling the user they have won is printed and the loop is broken
-- otherwise, the ask_for_input method of the game instance is called repeatedly, with checks of each letter entered by the user.
+- self.list_of_guesses - a list of all the letters that the user has tried during the game. This list is used to warn the user if a guess they enter has already been tried.
 
-Finally, the play_game function is called, in this case with a short list of possible words to guess
+The *Hangman* class has the following methods:
+
+- check_guess(self, guess) - this method takes the letter the user has inputted, converts it to lower case and compares it to the randomly-chosen word. A message is printed to the terminal telling the user if the letter is in the word or not, along with the number of lives remaining if the user guessed incorrectly plus self.word_guessed so the user can see their progress.
+
+- ask_for_input(self) - this method is used to ask the user to input a letter to guess. Conditionals check whether the inputted letter is a single, alphabetical character or whether the letter has been guessed already. If the letter is acceptable, self.check_guess is called on the letter.
+
+Outside of the *Hangman* class definition, a function called play_game() is defined that accepts a list of possible words. Within this function definition, the number of lives are set, an instance of the *Hangman* class is created and a while loop executes until either the user runs out of lives or correctly guesses the word. Within the loop, the ask_for_input() method of this instance of the Hangman() class is called repeatedly, for each successive user guess.
+
+# Thoughts and future work
+
+At the moment, the list from which the computer can randomly choose a word to guess is hard-coded into milestone_5.py. In future, I would like to adapt the game so that the user can load in their own lists of words. Another feature that would be cool would be different difficulty modes that offer the user differing numbers of lives and/or different length words. Another cool feature would be to offer the user the opportunity to get a clue!
