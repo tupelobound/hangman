@@ -1,4 +1,4 @@
-import random
+import random # import random module to use choice() method
 
 class Hangman():
     def __init__(self, word_list, num_lives=5):
@@ -11,16 +11,27 @@ class Hangman():
 
 
     def check_guess(self, guess):
+        # convert guess to lowercase
         guess = guess.lower()
+        # check if guessed letter is in the chosen word
         if guess in self.word:
+            # if so, print message to user
             print(f"Good guess! {guess} is in the word.")
+            # loop over chosen word
             for index, letter in enumerate(self.word):
+                # check if guessed letter equals current letter of word
                 if guess == letter:
+                    # if so, replace the underscore in word_guessed at the same index with the correct letter
                     self.word_guessed[index] = guess
+            # update the number of letters remaining to guess
             self.num_letters -= 1
+            # print word_guessed as a clue for user
             print(self.word_guessed)
+        # if guess isn't in the chosen word
         else:
+            # decrease number of lives by one
             self.num_lives -= 1
+            # print message to user, along with word_guessed and number of lives remaining
             print(f"Sorry, {guess} is not in the word.")
             print(self.word_guessed)
             print(f"You have {self.num_lives} lives left.")
@@ -47,16 +58,24 @@ class Hangman():
                 break
 
 def play_game(word_list):
+    # set initial number of lives
     num_lives = 5
+    # create instance of Hangman class
     game = Hangman(word_list, num_lives)
+    # print word_guessed (only underscores) as a clue for user
     print(game.word_guessed)
+    # infinite loop
     while True:
+        # check if user has run out of lives
         if game.num_lives == 0:
+            # if so, print losing message and break loop
             print("You lost!")
             break
         elif game.num_letters > 0:
+            # otherwise, if there are still letters to guess, ask user for input
             game.ask_for_input()
         else:
+            # otherwise, user has won - print congratulatory message and break loop
             print("Congratulations. You won the game!")
             break
 
