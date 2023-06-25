@@ -19,6 +19,8 @@ The game is implemented as a Python class, `Hangman` that can be instantiated by
 
 - `self.num_letters` - this is an integer representing the number of unique letters in the word still remaining to be guessed by the user
 
+- `self.num_lives` - this is an integer representing the number of remaining lives the user has in each instance of the game
+
 - `self.word_list` - a list of words (strings) from which the computer will randomly choose one for the user to guess
 
 - `self.list_of_guesses` - a list of all the letters that the user has tried during the game. This list is used to warn the user if a guess they enter has already been tried.
