@@ -11,6 +11,13 @@ class Hangman():
 
 
     def check_guess(self, guess):
+        '''
+        Checks the user-inputted guess against the computer-chosen word and prints appropriate message before updating
+        Hangman class attributes
+
+            Parameters: guess (str): a string that should consist of a single alphabetic character
+            Returns: None
+        '''
         # convert guess to lowercase
         guess = guess.lower()
         # check if guessed letter is in the chosen word
@@ -38,6 +45,13 @@ class Hangman():
             
 
     def ask_for_input(self):
+        '''
+        Gets user input as string and performs check to ensure a single alphabetic character is inputted.
+        Also checks whether user has already tried the letter in current instance of Hangman class.
+
+            Parameters: None
+            Returns: None
+        '''
         while True:
             # ask user to input a letter and save it to 'guess' variable
             guess = input("Please enter a letter: ")
@@ -58,6 +72,13 @@ class Hangman():
                 break
 
 def play_game(word_list):
+    '''
+    Creates an instance of the Hangman class and calls ask_for_input() method until either the user runs out of lives
+    or correctly guesses all letters in the chosen word
+
+        Parameters: word_list (list): list of strings to use as potential words for computer to choose from
+        Returns: None
+    '''
     # set initial number of lives
     num_lives = 5
     # create instance of Hangman class
