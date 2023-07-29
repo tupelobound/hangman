@@ -1,3 +1,6 @@
+# Initialise variable to act as test word
+word = 'Test'
+
 # define function that takes a character and checks if it is in a word
 def check_guess(guess):
     guess = guess.lower()
